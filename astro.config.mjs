@@ -1,10 +1,10 @@
 import { defineConfig, envField } from 'astro/config';
 import clerk from '@clerk/astro';
-import netlify from '@astrojs/netlify';
 import { imageService } from '@unpic/astro/service';
 import mdx from '@astrojs/mdx';
 import auth from '@coursebuilder/auth-astro'
 import coursebuilder from '@coursebuilder/astro'
+import vercel from '@astrojs/vercel'
 
 import react from '@astrojs/react';
 
@@ -30,7 +30,7 @@ export default defineConfig({
 		domains: ['img.clerk.com'],
 		service: imageService(),
 	},
-	adapter: netlify(),
+	adapter: vercel(),
 	security: {
 		checkOrigin: false,
 	},
