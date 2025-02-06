@@ -38,6 +38,10 @@ export default defineConfig({
 	},
 	env: {
 		schema: {
+			COURSEBUILDER_URL: envField.string({
+				access: 'public',
+				context: 'server',
+			}),
 			AUTH_SECRET: envField.string({
 				access: 'secret',
 				context: 'server',

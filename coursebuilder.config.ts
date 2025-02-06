@@ -1,4 +1,5 @@
 import { type CourseBuilderConfig } from '@coursebuilder/core'
+import { COURSEBUILDER_URL } from 'astro:env/server';
 
 export default {
 	basePath: '/api/coursebuilder',
@@ -6,5 +7,5 @@ export default {
 	authConfig: {
 		providers: [],
 	},
-	baseUrl: 'http://localhost:4321',
+	baseUrl: COURSEBUILDER_URL,
 } satisfies CourseBuilderConfig
