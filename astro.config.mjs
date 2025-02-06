@@ -3,6 +3,8 @@ import clerk from '@clerk/astro';
 import netlify from '@astrojs/netlify';
 import { imageService } from '@unpic/astro/service';
 import mdx from '@astrojs/mdx';
+import auth from '@coursebuilder/auth-astro'
+import coursebuilder from '@coursebuilder/astro'
 
 import react from '@astrojs/react';
 
@@ -21,6 +23,8 @@ export default defineConfig({
 		mdx(),
 		react(),
 		sitemap(),
+		auth({ configFile: './auth.config.ts' }),
+		coursebuilder({ configFile: './coursebuilder.config.ts' }),
 	],
 	image: {
 		domains: ['img.clerk.com'],
@@ -32,6 +36,22 @@ export default defineConfig({
 	},
 	env: {
 		schema: {
+			AUTH_SECRET: envField.string({
+				access: 'secret',
+				context: 'server',
+			}),
+			GITHUB_CLIENT_ID: envField.string({
+				access: 'secret',
+				context: 'server',
+			}),
+			GITHUB_CLIENT_SECRET: envField.string({
+				access: 'secret',
+				context: 'server',
+			}),
+			DATABASE_URL: envField.string({
+				access: 'secret',
+				context: 'server',
+			}),
 			NETLIFY_PERSONAL_ACCESS_TOKEN: envField.string({
 				access: 'secret',
 				context: 'server',
