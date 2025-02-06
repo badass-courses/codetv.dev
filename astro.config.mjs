@@ -28,7 +28,9 @@ export default defineConfig({
 	],
 	image: {
 		domains: ['img.clerk.com'],
-		service: imageService(),
+		service: imageService({
+			placeholder: 'none',
+		}),
 	},
 	adapter: vercel(),
 	security: {
